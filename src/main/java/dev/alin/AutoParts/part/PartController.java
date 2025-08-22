@@ -12,9 +12,16 @@ public class PartController {
     @Autowired
     private PartService service;
 
+    @RequestMapping("/part")
+    public String getPartPage() {
+        return "Part page";
+    }
+
     @RequestMapping("/allParts")
     public List<Part> getAllParts() {
         return service.getAllParts();
     }
+
+
 
 }
