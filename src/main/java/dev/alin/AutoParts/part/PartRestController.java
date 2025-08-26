@@ -1,23 +1,20 @@
 package dev.alin.AutoParts.part;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
-public class PartController {
+@RestController
+public class PartRestController {
 
     @Autowired
     private PartService service;
 
-    @RequestMapping("/part")
-    public String getPartPage(Model model) {
-        if (service.isDBEmpty())
-            service.populateInMemoryDB();
-        return "part_page";
+    @RequestMapping("/allParts")
+    public List<Part> getAllParts() {
+        return service.getAllParts();
     }
+
 }

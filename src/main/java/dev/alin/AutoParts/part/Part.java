@@ -10,7 +10,25 @@ public class Part {
     private long id;
     private String name;
     private String manufacturer;
+    private String description;
     private int price;
+
+    public Part() {}
+
+    public Part(long id, String name, String manufacturer, String description, int price) {
+        this.id = id;
+        this.name = name;
+        this.manufacturer = manufacturer;
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 
     public void setId(long id) {
         this.id = id;
