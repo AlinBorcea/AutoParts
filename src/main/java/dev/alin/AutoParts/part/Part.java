@@ -19,6 +19,7 @@ public class Part {
         this.id = id;
         this.name = name;
         this.manufacturer = manufacturer;
+        this.description = description;
         this.price = price;
     }
 

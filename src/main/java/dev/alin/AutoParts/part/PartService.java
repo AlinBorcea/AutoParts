@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -18,6 +19,22 @@ public class PartService {
         for (Part t : repository.findAll()) {
             list.add(t);
         }
+        return list;
+    }
+
+    public List<Part> getAllPartsByProperty(int propertyId) {
+        ArrayList<Part> list = new ArrayList<>();
+        for (Part t : repository.findAll()) {
+            list.add(t);
+        }
+
+        switch (propertyId) {
+            case 1 -> list.sort(Comparator.comparing(Part::getName));
+            case 2 -> list.sort(Comparator.comparing(Part::getManufacturer));
+            case 3 -> list.sort(Comparator.comparing(Part::getDescription));
+            case 4 -> list.sort(Comparator.comparing(Part::getPrice));
+        }
+
         return list;
     }
 
