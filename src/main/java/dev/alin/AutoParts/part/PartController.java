@@ -16,8 +16,6 @@ public class PartController {
 
     @RequestMapping("/part")
     public String getPartPage(Model model) {
-        if (service.isDBEmpty())
-            service.populateInMemoryDB();
         return "part_page";
     }
 }

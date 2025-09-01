@@ -23,19 +23,13 @@ public class PartService {
     }
 
     public List<Part> getAllPartsByProperty(int propertyId) {
-        ArrayList<Part> list = new ArrayList<>();
-        for (Part t : repository.findAll()) {
-            list.add(t);
-        }
-
-        switch (propertyId) {
-            case 1 -> list.sort(Comparator.comparing(Part::getName));
-            case 2 -> list.sort(Comparator.comparing(Part::getManufacturer));
-            case 3 -> list.sort(Comparator.comparing(Part::getDescription));
-            case 4 -> list.sort(Comparator.comparing(Part::getPrice));
-        }
-
-        return list;
+        return switch (propertyId) {
+            case 1 -> repository.findByOrderByNameAsc();
+            case 2 -> repository.findByOrderByManufacturerAsc();
+            case 3 -> repository.findByOrderByDescriptionAsc();
+            case 4 -> repository.findByOrderByPriceAsc();
+            default -> new ArrayList<>();
+        };
     }
 
     public boolean isDBEmpty() {
