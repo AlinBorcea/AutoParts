@@ -1,16 +1,28 @@
 package dev.alin.AutoParts.part;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.Getter;
 
+@Getter
 @Entity
+@Data
+@Table(name = "autoparts")
 public class Part {
 
     @Id
+    @Column(name = "part_id")
     private long id;
+    @Column(name = "part_name")
     private String name;
+    @Column(name = "part_manufacturer")
     private String manufacturer;
+    @Column(name = "part_description")
     private String description;
+    @Column(name = "part_price")
     private int price;
 
     public Part() {}
@@ -23,43 +35,4 @@ public class Part {
         this.price = price;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public int getPrice() {
-        return price;
-    }
 }
