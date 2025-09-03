@@ -1,0 +1,1 @@
+Spring Boot project used to retrieve data about auto parts and manufacturers using MySql as a database.
